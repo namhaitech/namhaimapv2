@@ -1,4 +1,4 @@
-package com.namhaigroup.map;
+package com.namhaigroup.mapv2;
 
 import android.content.Context;
 

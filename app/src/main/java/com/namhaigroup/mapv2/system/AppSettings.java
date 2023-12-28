@@ -1,4 +1,4 @@
-package com.namhaigroup.map.system;
+package com.namhaigroup.mapv2.system;
 
 public class AppSettings {
     public static boolean isAlert40km = true;

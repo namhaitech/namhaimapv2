@@ -1,4 +1,4 @@
-package com.namhaigroup.map;
+package com.namhaigroup.mapv2;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +19,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -29,8 +28,8 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.namhaigroup.map.system.AppSettings;
-import com.namhaigroup.map.system.UserInformation;
+import com.namhaigroup.mapv2.system.AppSettings;
+import com.namhaigroup.mapv2.system.UserInformation;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -46,7 +45,7 @@ public class Home_Activity extends AppCompatActivity {
 
     private final Handler handler = new Handler(Looper.getMainLooper());
     private String Lat, Long, currentSpeedLimit = "0", maxSpeedLimit = "0";
-    private boolean isHaveExtratags = false, isResidentialSounded = false, isResidential = false, oneway = false, isStartScan = false;
+    private boolean isHaveSpeedLimitShare = false, isResidentialSounded = false, isResidential = false, oneway = false, isStartScan = false;
     private int lanes = 0;
     private final int delay = 3000;
     TextView tvAddress, tvLat,  tvLong,  tvCurrentSpeed;
@@ -191,10 +190,10 @@ public class Home_Activity extends AppCompatActivity {
                     if (jsonObject.has("extratags") && !jsonObject.isNull("extratags")) { // Get extratags
                         JSONObject extraTags = jsonObject.getJSONObject("extratags");
                         if (extraTags.has("maxspeed")) { //Check max speed
-                            isHaveExtratags = true;
+                            isHaveSpeedLimitShare = true;
                             maxSpeedLimit = extraTags.getString("maxspeed");
                         } else {
-                            isHaveExtratags = false;
+                            isHaveSpeedLimitShare = false;
                         }
 
                         if (extraTags.has("population")) { //Check high population
@@ -218,13 +217,13 @@ public class Home_Activity extends AppCompatActivity {
                             lanes = 0;
                         }
                     } else {
-                        isHaveExtratags = false;
+                        isHaveSpeedLimitShare = false;
                         isResidential = false;
                         oneway = false;
                         lanes = 0;
                     }
 
-                    if (isHaveExtratags == false) { // Calculate speed limit if don't have extratags
+                    if (isHaveSpeedLimitShare == false) { // Calculate speed limit if don't have extratags
                         String name = jsonObject.getString("name");
                         String roadType = jsonObject.getString("type");
                         String residential = jsonObject.getString("place_rank");

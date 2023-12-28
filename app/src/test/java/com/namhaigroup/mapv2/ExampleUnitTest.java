@@ -1,4 +1,4 @@
-package com.namhaigroup.map;
+package com.namhaigroup.mapv2;
 
 import org.junit.Test;
 

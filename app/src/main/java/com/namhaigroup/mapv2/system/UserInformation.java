@@ -1,4 +1,4 @@
-package com.namhaigroup.map.system;
+package com.namhaigroup.mapv2.system;
 
 public class UserInformation {
     public static boolean isLogin = false;

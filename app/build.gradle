@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.namhaigroup.map'
+    namespace 'com.namhaigroup.mapv2'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.namhaigroup.map"
+        applicationId "com.namhaigroup.mapv2"
         minSdk 24
         targetSdk 33
         versionCode 1
